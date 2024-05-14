@@ -1,12 +1,14 @@
 #!/usr/bin/node
+/* print in console whats inside an error file, if this file cannot be read */
+
 const fs = require('fs');
+const cheminDuFichier = process.argv[2];
+fs.readFile(cheminDuFichier, 'utf8', callbackLectureFichier);
 
-const filePath = process.argv[2];
-
-fs.readFile(filePath, 'utf-8', (err, data) => {
-  if (err) {
-    console.error(err);
-    return;
+function callbackLectureFichier (erreur, contenu) {
+  if (erreur) {
+    console.log(erreur);
+  } else {
+    console.log(contenu)
   }
-  console.log(data);
-});
+}
