@@ -5,6 +5,7 @@ const fs = require('fs');
 const cheminDuFichier = process.argv[2];
 fs.readFile(cheminDuFichier, 'utf8', callbackLectureFichier);
 
+// Define the function of call
 function callbackLectureFichier (erreur, contenu) {
   if (erreur) {
     console.log(erreur);
